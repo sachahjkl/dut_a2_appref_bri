@@ -1,0 +1,976 @@
+[ INFO] 2017-02-10 10:17:36,014 [] [] FTP server started
+[ INFO] 2017-02-10 10:18:10,158 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:18:10,210 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:18:10,221 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:18:10,222 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:18:10,226 [] [0:0:0:0:0:0:0:1] RECEIVED: HEAD / HTTP/1.1
+[ INFO] 2017-02-10 10:18:10,226 [] [0:0:0:0:0:0:0:1] RECEIVED: GET / HTTP/1.1
+[ INFO] 2017-02-10 10:18:10,227 [] [0:0:0:0:0:0:0:1] RECEIVED: Host: localhost:21
+[ INFO] 2017-02-10 10:18:10,227 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Language: en-us,en;q=0.5
+[ INFO] 2017-02-10 10:18:10,228 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Encoding: gzip, deflate
+[ INFO] 2017-02-10 10:18:10,230 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+[ INFO] 2017-02-10 10:18:10,230 [] [0:0:0:0:0:0:0:1] RECEIVED: Host: localhost:21
+[ INFO] 2017-02-10 10:18:10,230 [] [0:0:0:0:0:0:0:1] RECEIVED: User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)
+[ INFO] 2017-02-10 10:18:10,230 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] RECEIVED: Connection: close
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Language: en-us,en;q=0.5
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] RECEIVED: 
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Encoding: *
+[ INFO] 2017-02-10 10:18:10,231 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+[ INFO] 2017-02-10 10:18:10,232 [] [0:0:0:0:0:0:0:1] RECEIVED: User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)
+[ INFO] 2017-02-10 10:18:10,232 [] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:18:10,232 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+[ INFO] 2017-02-10 10:18:10,232 [] [0:0:0:0:0:0:0:1] RECEIVED: Connection: close
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] RECEIVED: 
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,233 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,234 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,234 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,234 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:18:10,234 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ WARN] 2017-02-10 10:18:10,238 [] [0:0:0:0:0:0:0:1] EXCEPTION :
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:317)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:45)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:659)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:648)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1120)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ERROR] 2017-02-10 10:18:10,240 [] [0:0:0:0:0:0:0:1] Exception caught, closing session
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:317)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:45)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:659)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:648)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1120)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ INFO] 2017-02-10 10:18:10,240 [] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:18:24,467 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:18:24,468 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:18:24,469 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:18:24,473 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:18:24,473 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:18:24,474 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:18:24,476 [anonymous] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:18:24,978 [anonymous] [0:0:0:0:0:0:0:1] Login failure - anonymous
+[ INFO] 2017-02-10 10:18:24,980 [anonymous] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:18:24,980 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:18:24,980 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:18:24,981 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:18:24,982 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:18:31,475 [] [0:0:0:0:0:0:0:1] RECEIVED: USER h
+[ INFO] 2017-02-10 10:18:31,476 [h] [0:0:0:0:0:0:0:1] SENT: 331 User name okay, need password for h.
+
+[ INFO] 2017-02-10 10:18:31,509 [h] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:18:31,509 [h] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:18:32,009 [h] [0:0:0:0:0:0:0:1] Login failure - h
+[ INFO] 2017-02-10 10:18:32,010 [h] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:18:32,012 [h] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:22:18,612 [] [] FTP server started
+[ INFO] 2017-02-10 10:22:49,865 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:22:49,916 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:22:49,931 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:22:49,933 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:22:49,934 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:22:49,935 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:22:49,936 [anonymous] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:22:50,451 [anonymous] [0:0:0:0:0:0:0:1] Login failure - anonymous
+[ INFO] 2017-02-10 10:22:50,451 [anonymous] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:22:50,451 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:22:50,451 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:22:50,467 [anonymous] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:22:50,467 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:22:57,974 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: USER brette
+[ INFO] 2017-02-10 10:22:57,974 [brette] [0:0:0:0:0:0:0:1] SENT: 331 User name okay, need password for brette.
+
+[ INFO] 2017-02-10 10:22:58,005 [brette] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:22:58,005 [brette] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:22:58,508 [brette] [0:0:0:0:0:0:0:1] Login failure - brette
+[ INFO] 2017-02-10 10:22:58,508 [brette] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:22:58,508 [brette] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:28:29,798 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:28:29,798 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: HEAD / HTTP/1.1
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Host: localhost:21
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Language: en-us,en;q=0.5
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Encoding: gzip, deflate
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Connection: close
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: 
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: GET / HTTP/1.1
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Host: localhost:21
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Language: en-us,en;q=0.5
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Encoding: *
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: Connection: close
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] RECEIVED: 
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ INFO] 2017-02-10 10:28:29,814 [] [0:0:0:0:0:0:0:1] SENT: 530 Access denied.
+
+[ WARN] 2017-02-10 10:28:29,830 [] [0:0:0:0:0:0:0:1] EXCEPTION :
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:317)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:45)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:659)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:648)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1120)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ERROR] 2017-02-10 10:28:29,830 [] [0:0:0:0:0:0:0:1] Exception caught, closing session
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:317)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:45)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:659)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:648)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1120)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ INFO] 2017-02-10 10:28:29,830 [] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:28:53,610 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:28:53,610 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:28:53,610 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:28:53,610 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:28:53,610 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:28:53,610 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:28:53,610 [anonymous] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:28:54,110 [anonymous] [0:0:0:0:0:0:0:1] Login failure - anonymous
+[ INFO] 2017-02-10 10:28:54,110 [anonymous] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:28:54,110 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:28:54,110 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:28:54,110 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:28:54,110 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:28:57,553 [] [0:0:0:0:0:0:0:1] RECEIVED: USER gs
+[ INFO] 2017-02-10 10:28:57,553 [gs] [0:0:0:0:0:0:0:1] SENT: 331 User name okay, need password for gs.
+
+[ INFO] 2017-02-10 10:28:59,075 [gs] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:28:59,075 [gs] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:28:59,590 [gs] [0:0:0:0:0:0:0:1] Login failure - gs
+[ INFO] 2017-02-10 10:28:59,590 [gs] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:28:59,590 [gs] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:29:36,831 [] [] FTP server started
+[ INFO] 2017-02-10 10:29:41,167 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:29:41,214 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:29:41,214 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:29:41,214 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:29:41,230 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:29:41,230 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ WARN] 2017-02-10 10:29:41,230 [anonymous] [0:0:0:0:0:0:0:1] User failed to log in
+[ WARN] 2017-02-10 10:29:41,739 [anonymous] [0:0:0:0:0:0:0:1] Login failure - anonymous
+[ INFO] 2017-02-10 10:29:41,739 [anonymous] [0:0:0:0:0:0:0:1] SENT: 530 Authentication failed.
+
+[ INFO] 2017-02-10 10:29:41,739 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:29:41,739 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:29:41,754 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:29:41,754 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:29:57,828 [] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 10:51:17,498 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Fri Feb 10 10:51:17 CET 2017]; root of context hierarchy
+[ INFO] 2017-02-10 10:51:17,561 [] [] Loading XML bean definitions from file [C:\Users\brette\Desktop\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2017-02-10 10:51:19,045 [] [] Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]: org.springframework.beans.factory.support.DefaultListableBeanFactory@2d3fcdbd
+[ INFO] 2017-02-10 10:51:19,061 [] [] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2d3fcdbd: defining beans [org.apache.ftpserver.listener.ListenerFactory#0,org.apache.ftpserver.usermanager.PropertiesUserManagerFactory#0,org.apache.ftpserver.FtpServerFactory#0,myServer]; root of factory hierarchy
+[ INFO] 2017-02-10 10:51:19,217 [] [] FTP server started
+[ INFO] 2017-02-10 10:51:37,523 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 10:51:37,539 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 10:51:37,552 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:51:37,554 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:51:37,556 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:51:37,557 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2017-02-10 10:51:37,562 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - mozilla@example.com
+[ INFO] 2017-02-10 10:51:37,562 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2017-02-10 10:51:37,565 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2017-02-10 10:51:37,566 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2017-02-10 10:51:37,569 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: FEAT
+[ INFO] 2017-02-10 10:51:37,569 [anonymous] [0:0:0:0:0:0:0:1] SENT: 211-Extensions supported
+ SIZE
+ MDTM
+ REST STREAM
+ LANG en;zh-tw;ja;is
+ MLST Size;Modify;Type;Perm
+ AUTH SSL
+ AUTH TLS
+ MODE Z
+ UTF8
+ TVFS
+ MD5
+ MMD5
+ MFMT
+211 End
+
+[ INFO] 2017-02-10 10:51:37,570 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: OPTS UTF8 ON
+[ INFO] 2017-02-10 10:51:37,570 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-02-10 10:51:37,571 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2017-02-10 10:51:37,573 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2017-02-10 10:51:37,574 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2017-02-10 10:51:37,575 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2017-02-10 10:51:37,575 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:51:37,578 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2699|)
+
+[ INFO] 2017-02-10 10:51:37,581 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /
+[ INFO] 2017-02-10 10:51:37,582 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /
+
+[ INFO] 2017-02-10 10:51:37,582 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST
+[ WARN] 2017-02-10 10:51:37,590 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2699
+[ INFO] 2017-02-10 10:51:37,590 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:51:37,590 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Closing data connection.
+
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2703|)
+
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /../
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /
+
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST
+[ WARN] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2703
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:51:49,344 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Closing data connection.
+
+[ INFO] 2017-02-10 10:51:59,551 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:51:59,551 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2705|)
+
+[ INFO] 2017-02-10 10:51:59,551 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /../../
+[ INFO] 2017-02-10 10:51:59,551 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /
+
+[ INFO] 2017-02-10 10:51:59,566 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST
+[ WARN] 2017-02-10 10:51:59,566 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2705
+[ INFO] 2017-02-10 10:51:59,566 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:51:59,566 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Closing data connection.
+
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2707|)
+
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /../../README.txt
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 28
+
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /../../README.txt
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20161024110422.000
+
+[ INFO] 2017-02-10 10:52:04,919 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /../../README.txt
+[ INFO] 2017-02-10 10:52:04,981 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /README.txt
+[ WARN] 2017-02-10 10:52:04,981 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2707
+[ INFO] 2017-02-10 10:52:04,981 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:52:04,981 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2709|)
+
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /
+
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST
+[ WARN] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2709
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:52:21,015 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Closing data connection.
+
+[ INFO] 2017-02-10 10:52:36,389 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:52:36,390 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2712|)
+
+[ INFO] 2017-02-10 10:52:36,391 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /README.txt
+[ INFO] 2017-02-10 10:52:36,391 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 28
+
+[ INFO] 2017-02-10 10:52:36,392 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /README.txt
+[ INFO] 2017-02-10 10:52:36,392 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20161024110422.000
+
+[ INFO] 2017-02-10 10:52:36,392 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /README.txt
+[ INFO] 2017-02-10 10:52:36,443 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /README.txt
+[ WARN] 2017-02-10 10:52:36,444 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2712
+[ INFO] 2017-02-10 10:52:36,444 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:52:36,444 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2714|)
+
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /README.txt
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 28
+
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /README.txt
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20161024110422.000
+
+[ INFO] 2017-02-10 10:52:42,175 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /README.txt
+[ INFO] 2017-02-10 10:52:42,238 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /README.txt
+[ WARN] 2017-02-10 10:52:42,238 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2714
+[ INFO] 2017-02-10 10:52:42,238 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:52:42,238 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2726|)
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /brette
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /brette: Not a plain file.
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /brette
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20170210095356.712
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /brette
+[ WARN] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2726
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /brette: Not a plain file.
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2728|)
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /brette
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /brette
+
+[ INFO] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST
+[ WARN] 2017-02-10 10:54:38,511 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2728
+[ INFO] 2017-02-10 10:54:38,527 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:54:38,527 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Closing data connection.
+
+[ INFO] 2017-02-10 10:54:41,421 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:54:41,421 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2730|)
+
+[ INFO] 2017-02-10 10:54:41,437 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /brette/README.txt
+[ INFO] 2017-02-10 10:54:41,437 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 11
+
+[ INFO] 2017-02-10 10:54:41,437 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /brette/README.txt
+[ INFO] 2017-02-10 10:54:41,437 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20170210095429.067
+
+[ INFO] 2017-02-10 10:54:41,437 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /brette/README.txt
+[ INFO] 2017-02-10 10:54:41,499 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /brette/README.txt
+[ WARN] 2017-02-10 10:54:41,499 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2730
+[ INFO] 2017-02-10 10:54:41,499 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:54:41,499 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||2732|)
+
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /brette/readme.txt
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 11
+
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /brette/readme.txt
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20170210095429.067
+
+[ INFO] 2017-02-10 10:54:52,810 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /brette/readme.txt
+[ INFO] 2017-02-10 10:54:52,888 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /brette/readme.txt
+[ WARN] 2017-02-10 10:54:52,888 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 2732
+[ INFO] 2017-02-10 10:54:52,888 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:54:52,888 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:58:18,617 [] [172.19.35.38] CREATED
+[ INFO] 2017-02-10 10:58:18,617 [] [172.19.35.38] OPENED
+[ INFO] 2017-02-10 10:58:18,617 [] [172.19.35.38] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 10:58:18,617 [] [172.19.35.38] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: PASS *****
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] Anonymous login success - mozilla@example.com
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 230 User logged in, proceed.
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: SYST
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: FEAT
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 211-Extensions supported
+ SIZE
+ MDTM
+ REST STREAM
+ LANG en;zh-tw;ja;is
+ MLST Size;Modify;Type;Perm
+ AUTH SSL
+ AUTH TLS
+ MODE Z
+ UTF8
+ TVFS
+ MD5
+ MMD5
+ MFMT
+211 End
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: OPTS UTF8 ON
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: PWD
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 257 "/" is current directory.
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: TYPE I
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 200 Command TYPE okay.
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: PASV
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 227 Entering Passive Mode (172,19,34,124,10,215)
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: SIZE /brette/readme.txt
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 213 11
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: MDTM /brette/readme.txt
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] SENT: 213 20170210095429.067
+
+[ INFO] 2017-02-10 10:58:18,617 [anonymous] [172.19.35.38] RECEIVED: RETR /brette/readme.txt
+[ INFO] 2017-02-10 10:58:18,680 [anonymous] [172.19.35.38] File downloaded /brette/readme.txt
+[ WARN] 2017-02-10 10:58:18,680 [anonymous] [172.19.35.38] Releasing unreserved passive port: 2775
+[ INFO] 2017-02-10 10:58:18,680 [anonymous] [172.19.35.38] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 10:58:18,680 [anonymous] [172.19.35.38] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 10:58:26,274 [anonymous] [172.19.35.38] CLOSED
+[ INFO] 2017-02-10 10:59:52,911 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2017-02-10 11:52:13,155 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Fri Feb 10 11:52:13 CET 2017]; root of context hierarchy
+[ INFO] 2017-02-10 11:52:13,187 [] [] Loading XML bean definitions from file [C:\Users\brette\Desktop\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2017-02-10 11:52:13,405 [] [] Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]: org.springframework.beans.factory.support.DefaultListableBeanFactory@2d3fcdbd
+[ INFO] 2017-02-10 11:52:13,405 [] [] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2d3fcdbd: defining beans [org.apache.ftpserver.listener.ListenerFactory#0,org.apache.ftpserver.usermanager.PropertiesUserManagerFactory#0,org.apache.ftpserver.FtpServerFactory#0,myServer]; root of factory hierarchy
+[ INFO] 2017-02-10 11:52:13,546 [] [] FTP server started
+[ INFO] 2017-02-10 11:53:21,648 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 11:53:21,648 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 11:53:21,648 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 11:53:21,648 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 11:53:21,664 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 11:53:21,664 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2017-02-10 11:53:21,669 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - mozilla@example.com
+[ INFO] 2017-02-10 11:53:21,670 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2017-02-10 11:53:21,674 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2017-02-10 11:53:21,675 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2017-02-10 11:53:21,677 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: FEAT
+[ INFO] 2017-02-10 11:53:21,678 [anonymous] [0:0:0:0:0:0:0:1] SENT: 211-Extensions supported
+ SIZE
+ MDTM
+ REST STREAM
+ LANG en;zh-tw;ja;is
+ MLST Size;Modify;Type;Perm
+ AUTH SSL
+ AUTH TLS
+ MODE Z
+ UTF8
+ TVFS
+ MD5
+ MMD5
+ MFMT
+211 End
+
+[ INFO] 2017-02-10 11:53:21,678 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: OPTS UTF8 ON
+[ INFO] 2017-02-10 11:53:21,678 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-02-10 11:53:21,678 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2017-02-10 11:53:21,680 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2017-02-10 11:53:21,680 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2017-02-10 11:53:21,681 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2017-02-10 11:53:21,682 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 11:53:21,685 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||3278|)
+
+[ INFO] 2017-02-10 11:53:21,689 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /brette/readme.txt
+[ INFO] 2017-02-10 11:53:21,690 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /brette/readme.txt: No such file or directory.
+
+[ INFO] 2017-02-10 11:53:21,690 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /brette/readme.txt
+[ INFO] 2017-02-10 11:53:21,691 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 File /brette/readme.txt unavailable.
+
+[ INFO] 2017-02-10 11:53:21,691 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /brette/readme.txt
+[ WARN] 2017-02-10 11:53:21,693 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 3278
+[ INFO] 2017-02-10 11:53:21,693 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /brette/readme.txt: No such file or directory.
+
+[ INFO] 2017-02-10 11:53:21,693 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 11:53:21,694 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||3280|)
+
+[ INFO] 2017-02-10 11:53:21,694 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /brette/readme.txt
+[ INFO] 2017-02-10 11:53:21,695 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2017-02-10 11:53:21,696 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ WARN] 2017-02-10 11:53:21,696 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 3280
+[ INFO] 2017-02-10 11:54:00,593 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2017-02-10 11:54:00,593 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2017-02-10 11:54:00,593 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-02-10 11:54:00,593 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2017-02-10 11:54:00,593 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - mozilla@example.com
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: FEAT
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 211-Extensions supported
+ SIZE
+ MDTM
+ REST STREAM
+ LANG en;zh-tw;ja;is
+ MLST Size;Modify;Type;Perm
+ AUTH SSL
+ AUTH TLS
+ MODE Z
+ UTF8
+ TVFS
+ MD5
+ MMD5
+ MFMT
+211 End
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: OPTS UTF8 ON
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||3285|)
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 11
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20170210095429.067
+
+[ INFO] 2017-02-10 11:54:00,608 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:00,671 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2017-02-10 11:54:00,671 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 3285
+[ INFO] 2017-02-10 11:54:00,671 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 11:54:00,671 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||3288|)
+
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: MDTM /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 20170210105431.255
+
+[ INFO] 2017-02-10 11:54:34,056 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2017-02-10 11:54:34,119 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2017-02-10 11:54:34,119 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 3288
+[ INFO] 2017-02-10 11:54:34,119 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-02-10 11:54:34,119 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2017-02-10 11:59:34,129 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 09:54:35,219 [] [] FTP server started
+[ INFO] 2019-02-13 09:56:08,729 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 13 09:56:08 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-13 09:56:08,783 [] [] Loading XML bean definitions from file [E:\S4\Applis Reflexives Java\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-02-13 09:56:09,134 [] [] Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]: org.springframework.beans.factory.support.DefaultListableBeanFactory@482f8f11
+[ INFO] 2019-02-13 09:56:09,146 [] [] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@482f8f11: defining beans [org.apache.ftpserver.listener.ListenerFactory#0,org.apache.ftpserver.usermanager.PropertiesUserManagerFactory#0,org.apache.ftpserver.FtpServerFactory#0,myServer]; root of factory hierarchy
+[ INFO] 2019-02-13 09:56:09,262 [] [] FTP server started
+[ INFO] 2019-02-13 09:57:57,850 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 09:57:57,855 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 09:57:57,863 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 09:57:57,864 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 09:57:57,867 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 09:57:57,867 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 09:57:57,875 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 09:57:57,875 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 09:57:57,875 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 09:57:57,876 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 09:57:57,876 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 09:57:57,878 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 09:57:57,878 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 09:57:57,879 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 09:57:57,879 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/essai.txt
+[ INFO] 2019-02-13 09:57:57,880 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /texte/essai.txt: No such file or directory.
+
+[ INFO] 2019-02-13 09:57:57,880 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/essai.txt
+[ INFO] 2019-02-13 09:57:57,883 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 09:57:57,883 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 09:57:57,888 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63161|)
+
+[ INFO] 2019-02-13 09:57:57,889 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/essai.txt
+[ WARN] 2019-02-13 09:57:57,891 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63161
+[ INFO] 2019-02-13 09:57:57,891 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /texte/essai.txt: No such file or directory.
+
+[ INFO] 2019-02-13 09:57:57,891 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: QUIT
+[ INFO] 2019-02-13 09:57:57,892 [anonymous] [0:0:0:0:0:0:0:1] SENT: 221 Goodbye.
+
+[ INFO] 2019-02-13 09:57:57,893 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 09:58:12,402 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 09:58:12,402 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 09:58:12,403 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 09:58:12,403 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 09:58:12,404 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 09:58:12,404 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 09:58:12,405 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 09:58:12,405 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 09:58:12,405 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 09:58:12,405 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 09:58:12,405 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 09:58:12,406 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 09:58:12,406 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 09:58:12,407 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 09:58:12,408 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte
+[ INFO] 2019-02-13 09:58:12,408 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /texte: Not a plain file.
+
+[ INFO] 2019-02-13 09:58:12,408 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/
+[ INFO] 2019-02-13 09:58:12,410 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /texte
+
+[ INFO] 2019-02-13 09:58:12,410 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 09:58:12,411 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63167|)
+
+[ INFO] 2019-02-13 09:58:12,411 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST -l
+[ WARN] 2019-02-13 09:58:12,421 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63167
+[ INFO] 2019-02-13 09:58:12,421 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 09:58:12,421 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 09:58:16,209 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 09:58:16,210 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 09:58:16,211 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 09:58:16,211 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 09:58:16,212 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 09:58:16,213 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 09:58:16,214 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 09:58:16,214 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 09:58:16,214 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 09:58:16,214 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 09:58:16,214 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 09:58:16,215 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 09:58:16,215 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 09:58:16,215 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 09:58:16,215 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:16,216 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2019-02-13 09:58:16,216 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:16,216 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 09:58:16,216 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 09:58:16,217 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63170|)
+
+[ INFO] 2019-02-13 09:58:16,217 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:16,274 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2019-02-13 09:58:16,275 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63170
+[ INFO] 2019-02-13 09:58:16,275 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 09:58:16,275 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2019-02-13 09:58:16,275 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: QUIT
+[ INFO] 2019-02-13 09:58:16,276 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 09:58:19,260 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 09:58:19,260 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 09:58:19,262 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 09:58:19,263 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 09:58:19,265 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 09:58:19,265 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 09:58:19,265 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 09:58:19,266 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 09:58:19,266 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 09:58:19,266 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 09:58:19,266 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 09:58:19,267 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 09:58:19,267 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 09:58:19,267 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 09:58:19,267 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:19,268 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2019-02-13 09:58:19,268 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:19,268 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 09:58:19,268 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 09:58:19,269 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63173|)
+
+[ INFO] 2019-02-13 09:58:19,269 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2019-02-13 09:58:19,321 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2019-02-13 09:58:19,321 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63173
+[ INFO] 2019-02-13 09:58:19,321 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 09:58:19,321 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2019-02-13 09:58:19,321 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: QUIT
+[ INFO] 2019-02-13 09:58:19,322 [anonymous] [0:0:0:0:0:0:0:1] SENT: 221 Goodbye.
+
+[ INFO] 2019-02-13 09:58:19,323 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 10:05:38,300 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 10:05:38,301 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 10:05:38,302 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 10:05:38,303 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 10:05:38,303 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 10:05:38,303 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 10:05:38,304 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 10:05:38,304 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 10:05:38,304 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 10:05:38,305 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:38,306 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:38,306 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2019-02-13 10:05:38,306 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 10:05:38,307 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 10:05:38,307 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63215|)
+
+[ INFO] 2019-02-13 10:05:38,307 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:38,358 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2019-02-13 10:05:38,359 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63215
+[ INFO] 2019-02-13 10:05:38,359 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 10:05:38,359 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2019-02-13 10:05:38,359 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: QUIT
+[ INFO] 2019-02-13 10:05:38,360 [anonymous] [0:0:0:0:0:0:0:1] SENT: 221 Goodbye.
+
+[ INFO] 2019-02-13 10:05:38,360 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 10:05:45,406 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 10:05:45,407 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 10:05:45,407 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 10:05:45,408 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 10:05:45,408 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 10:05:45,408 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 10:05:45,409 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 10:05:45,410 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 10:05:45,410 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:45,410 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:45,411 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2019-02-13 10:05:45,411 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 10:05:45,411 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 10:05:45,412 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63218|)
+
+[ INFO] 2019-02-13 10:05:45,412 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:45,463 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2019-02-13 10:05:45,463 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63218
+[ INFO] 2019-02-13 10:05:45,464 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 10:05:45,464 [anonymous] [0:0:0:0:0:0:0:1] SENT: 226 Transfer complete.
+
+[ INFO] 2019-02-13 10:05:45,464 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: QUIT
+[ INFO] 2019-02-13 10:05:45,465 [anonymous] [0:0:0:0:0:0:0:1] SENT: 221 Goodbye.
+
+[ INFO] 2019-02-13 10:05:45,465 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 10:05:48,586 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 10:05:48,587 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 10:05:48,588 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 10:05:48,588 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 10:05:48,589 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 10:05:48,589 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 10:05:48,589 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 10:05:48,589 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 10:05:48,589 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 10:05:48,590 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:48,592 [anonymous] [0:0:0:0:0:0:0:1] SENT: 213 24
+
+[ INFO] 2019-02-13 10:05:48,592 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:48,593 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 No such directory.
+
+[ INFO] 2019-02-13 10:05:48,593 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 10:05:48,594 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||63221|)
+
+[ INFO] 2019-02-13 10:05:48,594 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: RETR /texte/bonjour.txt
+[ INFO] 2019-02-13 10:05:48,645 [anonymous] [0:0:0:0:0:0:0:1] File downloaded /texte/bonjour.txt
+[ WARN] 2019-02-13 10:05:48,646 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 63221
+[ INFO] 2019-02-13 10:05:48,646 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 10:05:48,646 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-13 11:02:06,944 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 13 11:02:06 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-13 11:02:06,983 [] [] Loading XML bean definitions from file [E:\S4\Appli_Reflexive\Projet_Appli_Reflexive\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-02-13 11:02:07,299 [] [] Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]: org.springframework.beans.factory.support.DefaultListableBeanFactory@482f8f11
+[ INFO] 2019-02-13 11:02:07,309 [] [] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@482f8f11: defining beans [org.apache.ftpserver.listener.ListenerFactory#0,org.apache.ftpserver.usermanager.PropertiesUserManagerFactory#0,org.apache.ftpserver.FtpServerFactory#0,myServer]; root of factory hierarchy
+[ INFO] 2019-02-13 11:02:07,418 [] [] FTP server started
+[ INFO] 2019-02-13 11:15:27,807 [] [0:0:0:0:0:0:0:1] CREATED
+[ INFO] 2019-02-13 11:15:27,812 [] [0:0:0:0:0:0:0:1] OPENED
+[ INFO] 2019-02-13 11:15:27,819 [] [0:0:0:0:0:0:0:1] SENT: 220 Service ready for new user.
+
+[ INFO] 2019-02-13 11:15:27,823 [] [0:0:0:0:0:0:0:1] RECEIVED: USER anonymous
+[ INFO] 2019-02-13 11:15:27,826 [anonymous] [0:0:0:0:0:0:0:1] SENT: 331 Guest login okay, send your complete e-mail address as password.
+
+[ INFO] 2019-02-13 11:15:27,826 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PASS *****
+[ INFO] 2019-02-13 11:15:27,829 [anonymous] [0:0:0:0:0:0:0:1] Anonymous login success - chrome@example.com
+[ INFO] 2019-02-13 11:15:27,829 [anonymous] [0:0:0:0:0:0:0:1] SENT: 230 User logged in, proceed.
+
+[ INFO] 2019-02-13 11:15:27,830 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SYST
+[ INFO] 2019-02-13 11:15:27,830 [anonymous] [0:0:0:0:0:0:0:1] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2019-02-13 11:15:27,831 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: PWD
+[ INFO] 2019-02-13 11:15:27,832 [anonymous] [0:0:0:0:0:0:0:1] SENT: 257 "/" is current directory.
+
+[ INFO] 2019-02-13 11:15:27,832 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: TYPE I
+[ INFO] 2019-02-13 11:15:27,833 [anonymous] [0:0:0:0:0:0:0:1] SENT: 200 Command TYPE okay.
+
+[ INFO] 2019-02-13 11:15:27,833 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: SIZE /
+[ INFO] 2019-02-13 11:15:27,834 [anonymous] [0:0:0:0:0:0:0:1] SENT: 550 /: Not a plain file.
+
+[ INFO] 2019-02-13 11:15:27,838 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: CWD /
+[ INFO] 2019-02-13 11:15:27,840 [anonymous] [0:0:0:0:0:0:0:1] SENT: 250 Directory changed to /
+
+[ INFO] 2019-02-13 11:15:27,841 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: EPSV
+[ INFO] 2019-02-13 11:15:27,843 [anonymous] [0:0:0:0:0:0:0:1] SENT: 229 Entering Passive Mode (|||64208|)
+
+[ INFO] 2019-02-13 11:15:27,844 [anonymous] [0:0:0:0:0:0:0:1] RECEIVED: LIST -l
+[ WARN] 2019-02-13 11:15:27,851 [anonymous] [0:0:0:0:0:0:0:1] Releasing unreserved passive port: 64208
+[ INFO] 2019-02-13 11:15:27,851 [anonymous] [0:0:0:0:0:0:0:1] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2019-02-13 11:15:27,851 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-02-20 10:37:15,904 [] [] FTP server started
+[ INFO] 2019-02-20 10:40:29,972 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 20 10:40:29 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-20 10:40:30,011 [] [] Loading XML bean definitions from file [C:\Users\belbachi\Desktop\dut_a2_appref_bri\vendor\apache-ftpserver-1.1.0\.\vendor\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-02-20 10:40:35,709 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 20 10:40:35 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-20 10:40:35,749 [] [] Loading XML bean definitions from file [C:\Users\belbachi\Desktop\dut_a2_appref_bri\vendor\apache-ftpserver-1.1.0\.\vendor\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-02-20 10:40:36,988 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 20 10:40:36 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-20 10:40:37,029 [] [] Loading XML bean definitions from file [C:\Users\belbachi\Desktop\dut_a2_appref_bri\vendor\apache-ftpserver-1.1.0\.\vendor\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-02-20 10:40:51,324 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@deb6432: display name [org.springframework.context.support.FileSystemXmlApplicationContext@deb6432]; startup date [Wed Feb 20 10:40:51 CET 2019]; root of context hierarchy
+[ INFO] 2019-02-20 10:40:51,360 [] [] Loading XML bean definitions from file [C:\Users\belbachi\Desktop\dut_a2_appref_bri\vendor\apache-ftpserver-1.1.0\.\vendor\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
