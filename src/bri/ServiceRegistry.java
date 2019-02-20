@@ -18,6 +18,7 @@ public class ServiceRegistry {
 	static {
 		servicesClasses = new Vector<Class<?>>();
 	}
+
 	private static List<Class<?>> servicesClasses;
 
 	// ajoute une classe de service après contrôle de la norme BLTi
@@ -26,22 +27,34 @@ public class ServiceRegistry {
 			servicesClasses.add(service);
 	}
 
-	// renvoie la classe de service (numService -1)
-	public static void getServiceClass(int numService) {
+	public static void updateService(Class<? extends Runnable> updated, int numService)
+			throws InvalidClassException, ClassNotFoundException {
+		Class<?> toUpdate;
+		try {
+			toUpdate = getServiceClass(numService);
+		} catch (IndexOutOfBoundsException e) {
+			throw new ClassNotFoundException("Classe à mettre à jour introuvable");
+		}
+		servicesClasses.remove(toUpdate);
+		addService(updated);
+	}
 
+	// renvoie la classe de service (numService -1)
+	public static Class<?> getServiceClass(int numService) {
+		return servicesClasses.get(numService - 1);
 	}
 
 	// liste les activités présentes
 	public static String toStringue() {
-		String result = "Activités présentes :\n";
+		StringBuilder result = new StringBuilder("Activités présentes :\n");
 		int i = 1;
 		synchronized (ServiceRegistry.class) {
 			for (Class<?> r : servicesClasses) {
-				result = result + i + " " + r.toString() + "\n";
+				result.append(i + " " + r.toString() + "\n");
 				i++;
 			}
 		}
-		return result;
+		return result.toString();
 	}
 
 	public static boolean checkServiceBRI(Class<? extends Runnable> s) throws InvalidClassException {

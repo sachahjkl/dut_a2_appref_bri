@@ -17,7 +17,7 @@ class ServiceBRi implements Runnable {
 			PrintWriter out = new PrintWriter(client.getOutputStream(), true);
 			out.println(ServiceRegistry.toStringue() + "##Tapez le numéro de service désiré :");
 			int choix = Integer.parseInt(in.readLine());
-
+			
 			// instancier le service numéro "choix" en lui passant la socket "client"
 			// invoquer run() pour cette instance ou la lancer dans un thread à part
 
