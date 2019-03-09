@@ -5,11 +5,13 @@ import java.net.*;
 
 public class ServeurBRi implements Runnable {
 	private ServerSocket listen_socket;
+	private String type;
 
 	// Cree un serveur TCP - objet de la classe ServerSocket
-	public ServeurBRi(int port) {
+	public ServeurBRi(int port, String type) {
 		try {
 			listen_socket = new ServerSocket(port);
+			this.type = type;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -19,20 +21,22 @@ public class ServeurBRi implements Runnable {
 	// pour chaque connection, il cree un ServiceInversion,
 	// qui va la traiter.
 	public void run() {
+		System.out.println("log : Serveur démarré " + type);
 		try {
-			while (true)
-				new ServiceBRi(listen_socket.accept()).start();
-		} catch (IOException e) {
-			try {
-				this.listen_socket.close();
-			} catch (IOException e1) {
+			while (true) {
+				Socket s = listen_socket.accept();
+				FabriqueTraitement.make(type, s).start();
 			}
-			System.err.println("Pb sur le port d'�coute :" + e);
+		} catch (IllegalArgumentException | IOException e) {
+			System.err.println("Pb sur le port d'écoute :" + e);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
 	// restituer les ressources --> finalize
 	protected void finalize() throws Throwable {
+		System.out.println("log : Serveur éteint " + type);
 		try {
 			this.listen_socket.close();
 		} catch (IOException e1) {
@@ -40,7 +44,7 @@ public class ServeurBRi implements Runnable {
 	}
 
 	// lancement du serveur
-	public void lancer() {
+	public void start() {
 		(new Thread(this)).start();
 	}
 }

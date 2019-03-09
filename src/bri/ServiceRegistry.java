@@ -10,33 +10,38 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
+import users.Programmer;
+
 public class ServiceRegistry {
 	// cette classe est un registre de services
-	// partagÈe en concurrence par les clients et les "ajouteurs" de services,
+	// partag√©e en concurrence par les clients et les "ajouteurs" de services,
 	// un Vector pour cette gestion est pratique
 
 	static {
-		servicesClasses = new Vector<Class<?>>();
+		servicesClasses = new Vector<>();
+		users = new Vector<>();
 	}
 
-	private static List<Class<?>> servicesClasses;
+	private static List<Class<? extends Service>> servicesClasses;
+	private static List<User> users;
 
-	// ajoute une classe de service aprËs contrÙle de la norme BLTi
-	public static void addService(Class<? extends Runnable> service) throws InvalidClassException {
+	// ajoute une classe de service apr√®s contr√¥le de la norme BLTi
+	public static boolean addService(Class<? extends Service> service) throws InvalidClassException {
 		if (checkServiceBRI(service))
-			servicesClasses.add(service);
+			return servicesClasses.add(service);
+		return false;
 	}
 
-	public static void updateService(Class<? extends Runnable> updated, int numService)
+	public static boolean updateService(int numService, Class<? extends Service> updated)
 			throws InvalidClassException, ClassNotFoundException {
 		Class<?> toUpdate;
 		try {
-			toUpdate = getServiceClass(numService);
+			toUpdate = getServiceClass(numService - 1);
 		} catch (IndexOutOfBoundsException e) {
-			throw new ClassNotFoundException("Classe ‡ mettre ‡ jour introuvable");
+			throw new ClassNotFoundException("Classe √† mettre √† jour introuvable");
 		}
 		servicesClasses.remove(toUpdate);
-		addService(updated);
+		return addService(updated);
 	}
 
 	// renvoie la classe de service (numService -1)
@@ -44,9 +49,11 @@ public class ServiceRegistry {
 		return servicesClasses.get(numService - 1);
 	}
 
-	// liste les activitÈs prÈsentes
+	// liste les activit√©s pr√©sentes
 	public static String toStringue() {
-		StringBuilder result = new StringBuilder("ActivitÈs prÈsentes :\n");
+		if (servicesClasses.isEmpty())
+			return "Aucune activit√©";
+		StringBuilder result = new StringBuilder("Activit√©s pr√©sentes :\n");
 		int i = 1;
 		synchronized (ServiceRegistry.class) {
 			for (Class<?> r : servicesClasses) {
@@ -57,9 +64,14 @@ public class ServiceRegistry {
 		return result.toString();
 	}
 
-	public static boolean checkServiceBRI(Class<? extends Runnable> s) throws InvalidClassException {
+	public static boolean removeService(Class<? extends Service> s) {
+		
+		return false;
+	}
+
+	public static boolean checkServiceBRI(Class<? extends Service> s) throws InvalidClassException {
 		if (!Arrays.asList(s.getInterfaces()).contains(Service.class))
-			throw new InvalidClassException("n'implÈmente pas L'interface BRi.Service");
+			throw new InvalidClassException("n'impl√©mente pas L'interface BRi.Service");
 		if (!Modifier.isAbstract(s.getModifiers()))
 			throw new InvalidClassException("n'est pas abstract");
 		if (Modifier.isPublic(s.getModifiers()))
