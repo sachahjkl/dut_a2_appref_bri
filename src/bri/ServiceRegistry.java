@@ -10,8 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
-import users.Programmer;
-
 public class ServiceRegistry {
 	// cette classe est un registre de services
 	// partagée en concurrence par les clients et les "ajouteurs" de services,
@@ -19,11 +17,9 @@ public class ServiceRegistry {
 
 	static {
 		servicesClasses = new Vector<>();
-		users = new Vector<>();
 	}
 
 	private static List<Class<? extends Service>> servicesClasses;
-	private static List<User> users;
 
 	// ajoute une classe de service après contrôle de la norme BLTi
 	public static boolean addService(Class<? extends Service> service) throws InvalidClassException {
@@ -65,7 +61,7 @@ public class ServiceRegistry {
 	}
 
 	public static boolean removeService(Class<? extends Service> s) {
-		
+
 		return false;
 	}
 

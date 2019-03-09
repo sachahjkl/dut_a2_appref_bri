@@ -75,7 +75,8 @@ public class TraitementProg implements Traitement {
 				out.println("Mot de passes différents.");
 				return;
 			}
-			out.println("addresse ftp : \n" + stop);
+			out.println("addresse ftp :");
+			out.println("ftp://\n" + stop);
 			FTPAddress = in.readLine();
 			UserRegistry.registerProgrammer(login, pwd, FTPAddress);
 			out.println("Compte créé avec succès.");

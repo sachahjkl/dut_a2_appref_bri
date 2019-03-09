@@ -28,20 +28,22 @@ public class UserRegistry {
 
 	public static User login(String login, String pwd) {
 		for (User u : users) {
-			if (u.login(login, pwd)) {
+			if (u.login(login, pwd))
 				return u;
-			}
 		}
 		return null;
 	}
 
 	private static boolean exists(String login) {
 		for (User u : users) {
-			if (u.getLogin().equals(login)) {
+			if (u.getLogin().equals(login))
 				return true;
-			}
 		}
 		return false;
+	}
+
+	public static User[] getUsers() {
+		return (User[]) users.toArray();
 	}
 
 }
