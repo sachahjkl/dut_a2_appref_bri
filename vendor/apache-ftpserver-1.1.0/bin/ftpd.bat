@@ -1,4 +1,4 @@
-set JAVA_HOME=C:\Program Files\Java\jre1.8.0_171
+set JAVA_HOME=C:/Program Files/Java/jdk-11
 @echo off
 
 REM Licensed to the Apache Software Foundation (ASF) under one
