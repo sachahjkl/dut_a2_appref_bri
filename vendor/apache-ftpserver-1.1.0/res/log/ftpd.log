@@ -1403,3 +1403,8 @@ java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
 [ INFO] 2019-03-09 18:53:20,781 [anonymous] [0:0:0:0:0:0:0:1] SENT: 221 Goodbye.
 
 [ INFO] 2019-03-09 18:53:20,781 [anonymous] [0:0:0:0:0:0:0:1] CLOSED
+[ INFO] 2019-03-09 19:05:47,388 [] [] Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@10a035a0: display name [org.springframework.context.support.FileSystemXmlApplicationContext@10a035a0]; startup date [Sat Mar 09 19:05:47 CET 2019]; root of context hierarchy
+[ INFO] 2019-03-09 19:05:47,426 [] [] Loading XML bean definitions from file [C:\Users\Sacha\git\dut_a2_appref_bri\vendor\apache-ftpserver-1.1.0\res\conf\ftpd-typical.xml]
+[ INFO] 2019-03-09 19:05:47,882 [] [] Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@10a035a0]: org.springframework.beans.factory.support.DefaultListableBeanFactory@6c130c45
+[ INFO] 2019-03-09 19:05:47,892 [] [] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6c130c45: defining beans [org.apache.ftpserver.listener.ListenerFactory#0,org.apache.ftpserver.usermanager.PropertiesUserManagerFactory#0,org.apache.ftpserver.FtpServerFactory#0,myServer]; root of factory hierarchy
+[ INFO] 2019-03-09 19:05:48,042 [] [] FTP server started
