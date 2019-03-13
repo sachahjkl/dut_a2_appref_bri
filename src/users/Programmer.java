@@ -49,7 +49,7 @@ public class Programmer implements User {
 	}
 
 	public void setFTPAddress(String address) throws MalformedURLException {
-		this.FTPAddress = new URL("ftp://" + address);
+		this.FTPAddress = new URL("ftp://" + address + "/");
 	}
 
 	public boolean resetPwd(String old, String neww) {
@@ -90,39 +90,12 @@ public class Programmer implements User {
 	}
 
 	@Override
-	public void updateService(int numService, Class<? extends Service> updated)
-			throws InvalidClassException, ClassNotFoundException {
-		try {
-			Class<?> c = serviceClasses.get(numService);
-			if (ServiceRegistry.updateService(numService, updated)) {
-				this.serviceClasses.remove(numService - 1);
-				this.serviceClasses.add(numService, updated);
-			}
-		} catch (IndexOutOfBoundsException e) {
-			throw new ClassNotFoundException("Classe à mettre à jour introuvable");
-		}
-
-	}
-
-	@Override
 	public String getLogin() {
 		return login;
 	}
 
 	@Override
-	public void stopService(int numService) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public String toStringue() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Class<? extends Service>[] getService() {
 		// TODO Auto-generated method stub
 		return null;
 	}

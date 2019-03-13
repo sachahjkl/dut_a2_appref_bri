@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
+import users.Programmer;
 
 public class ServiceRegistry {
 	// cette classe est un registre de services
@@ -16,15 +17,59 @@ public class ServiceRegistry {
 	// un Vector pour cette gestion est pratique
 
 	static {
-		servicesClasses = new Vector<>();
+		servicesDemarres = new Vector<>();
+		servicesArretes = new Vector<>();
+		users = new Vector<>();
+		try {
+			registerProgrammer("test", "test", "localhost:2121");
+			registerProgrammer("test1", "test", "localhost");
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+//		try {
+//			addService(ServiceInversion.class);
+//		} catch (InvalidClassException e) {
+//			e.printStackTrace();
+//		}
 	}
 
-	private static List<Class<? extends Service>> servicesClasses;
+	private static List<Class<? extends Service>> servicesDemarres;
+	private static List<Class<? extends Service>> servicesArretes;
+	private static List<User> users;
 
 	// ajoute une classe de service après contrôle de la norme BLTi
-	public static boolean addService(Class<? extends Service> service) throws InvalidClassException {
+	@SuppressWarnings("unchecked")
+	public static boolean addService(Class<?> service) throws InvalidClassException {
 		if (checkServiceBRI(service))
-			return servicesClasses.add(service);
+			return servicesDemarres.add((Class<? extends Service>) service);
+		return false;
+	}
+
+	public static boolean arreteService(int numService, User u) {
+		int i = 0;
+		for (Class<? extends Service> c : servicesDemarres) {
+			if (c.getPackageName().equals(u.getLogin())) {
+				i++;
+				if (i == numService) {
+					servicesDemarres.remove(c);
+					return servicesArretes.add(c);
+				}
+			}
+		}
+		return false;
+	}
+
+	public static boolean demarrerService(int numService, User u) {
+		int i = 0;
+		for (Class<? extends Service> c : servicesArretes) {
+			if (c.getPackageName().equals(u.getLogin())) {
+				i++;
+				if (i == numService) {
+					servicesArretes.remove(c);
+					return servicesDemarres.add(c);
+				}
+			}
+		}
 		return false;
 	}
 
@@ -36,23 +81,23 @@ public class ServiceRegistry {
 		} catch (IndexOutOfBoundsException e) {
 			throw new ClassNotFoundException("Classe à mettre à jour introuvable");
 		}
-		servicesClasses.remove(toUpdate);
+		servicesDemarres.remove(toUpdate);
 		return addService(updated);
 	}
 
 	// renvoie la classe de service (numService -1)
 	public static Class<?> getServiceClass(int numService) {
-		return servicesClasses.get(numService - 1);
+		return servicesDemarres.get(numService - 1);
 	}
 
 	// liste les activités présentes
 	public static String toStringue() {
-		if (servicesClasses.isEmpty())
+		if (servicesDemarres.isEmpty())
 			return "Aucune activité";
 		StringBuilder result = new StringBuilder("Activités présentes :\n");
 		int i = 1;
 		synchronized (ServiceRegistry.class) {
-			for (Class<?> r : servicesClasses) {
+			for (Class<?> r : servicesDemarres) {
 				result.append(i + " " + r.toString() + "\n");
 				i++;
 			}
@@ -65,26 +110,26 @@ public class ServiceRegistry {
 		return false;
 	}
 
-	public static boolean checkServiceBRI(Class<? extends Service> s) throws InvalidClassException {
-		if (!Arrays.asList(s.getInterfaces()).contains(Service.class))
+	public static boolean checkServiceBRI(Class<?> service) throws InvalidClassException {
+		if (!Arrays.asList(service.getInterfaces()).contains(Service.class))
 			throw new InvalidClassException("n'implémente pas L'interface BRi.Service");
-		if (!Modifier.isAbstract(s.getModifiers()))
-			throw new InvalidClassException("n'est pas abstract");
-		if (Modifier.isPublic(s.getModifiers()))
-			throw new InvalidClassException("est publique");
-		Constructor<? extends Runnable> c = null;
+		if (Modifier.isAbstract(service.getModifiers()))
+			throw new InvalidClassException("est abstract");
+		if (!Modifier.isPublic(service.getModifiers()))
+			throw new InvalidClassException("n'est pas publique");
+		Constructor<?> c = null;
 		try {
-			c = s.getConstructor(Socket.class);
+			c = service.getConstructor(Socket.class);
 		} catch (NoSuchMethodException | SecurityException e) {
 			throw new InvalidClassException("PAS DE CONSTRUCTEUR RESPECTANT LA NORME.");
 		}
 		if (!(Modifier.isPublic(c.getModifiers()) && c.getExceptionTypes().length == 0))
 			throw new InvalidClassException("PAS DE CONSTRUCTEUR RESPECTANT LA NORME.");
-		if (!(containsPrivateSocket(s.getDeclaredFields())))
-			throw new InvalidClassException("PAS DE CONSTRUCTEUR RESPECTANT LA NORME.");
+		if (!(containsPrivateSocket(service.getDeclaredFields())))
+			throw new InvalidClassException("N'as pas d'attribut socket private final");
 		Method m = null;
 		try {
-			m = s.getMethod("toStringue");
+			m = service.getMethod("toStringue");
 		} catch (NoSuchMethodException | SecurityException e) {
 			throw new InvalidClassException("PAS DE TOSTRINGUE RESPECTANT LA NORME.");
 		}
@@ -95,13 +140,74 @@ public class ServiceRegistry {
 	}
 
 	private static boolean containsPrivateSocket(Field[] fields) {
-		boolean b = false;
 		for (Field aField : fields) {
-			if (Modifier.isPrivate(aField.getModifiers()) && aField.getClass().equals(Socket.class)) {
-				b = true;
-				break;
-			}
+			if (Modifier.isPrivate(aField.getModifiers()) && aField.getType().equals(Socket.class))
+				return true;
 		}
-		return b;
+		return false;
+	}
+
+	public static void registerProgrammer(String login, String pwd, String FTPAddress) throws Exception {
+		login = login.toLowerCase();
+		if (exists(login))
+			throw new Exception("Nom d'utilisateur déjà existant");
+		Programmer p = new Programmer(login, pwd, FTPAddress);
+		users.add(p);
+		System.out.println("log : programmeur créé " + p.getLogin());
+	}
+
+	public static User login(String login, String pwd) {
+		login = login.toLowerCase();
+		for (User u : users) {
+			if (u.login(login, pwd))
+				return u;
+		}
+		return null;
+	}
+
+	private static boolean exists(String login) {
+		for (User u : users) {
+			if (u.getLogin().equals(login))
+				return true;
+		}
+		return false;
+	}
+
+	public static User[] getUsers() {
+		return (User[]) users.toArray();
+	}
+
+	public static String getServicesDemarres(User u) {
+		StringBuilder sb = new StringBuilder();
+		int i = 1;
+		for (Class<? extends Service> c : servicesDemarres) {
+			if (c.getPackageName().equals(u.getLogin()))
+				sb.append("* " + i++ + " : " + c.getSimpleName());
+		}
+		return sb.toString();
+	}
+
+	public static String getServicesArretes(User u) {
+		StringBuilder sb = new StringBuilder();
+		int i = 1;
+		for (Class<? extends Service> c : servicesArretes) {
+			if (c.getPackageName().equals(u.getLogin()))
+				sb.append("* " + i++ + " : " + c.getSimpleName());
+		}
+		return sb.toString();
+	}
+
+	public static String getService(User u) {
+		StringBuilder sb = new StringBuilder();
+		int i = 1;
+		for (Class<? extends Service> c : servicesArretes) {
+			if (c.getPackageName().equals(u.getLogin()))
+				sb.append("* " + i++ + " : " + c.getSimpleName());
+		}
+		for (Class<? extends Service> c : servicesArretes) {
+			if (c.getPackageName().equals(u.getLogin()))
+				sb.append("* " + i++ + " : " + c.getSimpleName());
+		}
+		return sb.toString();
 	}
 }

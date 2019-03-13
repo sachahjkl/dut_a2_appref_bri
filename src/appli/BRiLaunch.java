@@ -12,7 +12,6 @@ public class BRiLaunch {
 
 	public static void main(String[] args) throws MalformedURLException, ClassNotFoundException {
 		Class.forName("bri.ServiceRegistry");
-		Class.forName("bri.UserRegistry");
 		new Thread(new ServeurBRi(PORT_AMA, type_AMA)).start();
 		new Thread(new ServeurBRi(PORT_PROG, type_PROG)).start();
 	}
