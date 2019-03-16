@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
@@ -40,7 +41,7 @@ public class ServiceRegistry {
 	// ajoute une classe de service après contrôle de la norme BLTi
 	@SuppressWarnings("unchecked")
 	public static boolean addService(Class<?> service) throws InvalidClassException {
-		if (checkServiceBRI(service))
+		if (checkServiceBRI(service) && !contains(service))
 			return servicesDemarres.add((Class<? extends Service>) service);
 		return false;
 	}
@@ -73,16 +74,28 @@ public class ServiceRegistry {
 		return false;
 	}
 
-	public static boolean updateService(int numService, Class<? extends Service> updated)
+	public static boolean updateService(int numService, Class<?> updated, User u)
 			throws InvalidClassException, ClassNotFoundException {
-		Class<?> toUpdate;
-		try {
-			toUpdate = getServiceClass(numService - 1);
-		} catch (IndexOutOfBoundsException e) {
-			throw new ClassNotFoundException("Classe à mettre à jour introuvable");
+		int i = 1;
+		for (Class<? extends Service> c : servicesDemarres) {
+			if (c.getPackageName().equals(u.getLogin())) {
+				i++;
+				if (i == numService) {
+					removeService(c);
+					return addService(updated);
+				}
+			}
 		}
-		servicesDemarres.remove(toUpdate);
-		return addService(updated);
+		for (Class<? extends Service> c : servicesArretes) {
+			if (c.getPackageName().equals(u.getLogin())) {
+				i++;
+				if (i == numService) {
+					removeService(c);
+					return addService(updated);
+				}
+			}
+		}
+		return false;
 	}
 
 	// renvoie la classe de service (numService -1)
@@ -106,8 +119,8 @@ public class ServiceRegistry {
 	}
 
 	public static boolean removeService(Class<? extends Service> s) {
-
-		return false;
+		boolean b = servicesDemarres.remove(s);
+		return servicesArretes.remove(s) || b;
 	}
 
 	public static boolean checkServiceBRI(Class<?> service) throws InvalidClassException {
@@ -177,37 +190,38 @@ public class ServiceRegistry {
 		return (User[]) users.toArray();
 	}
 
-	public static String getServicesDemarres(User u) {
-		StringBuilder sb = new StringBuilder();
-		int i = 1;
+	public static String[] getServicesDemarres(User u) {
+		List<String> al = new ArrayList<String>();
 		for (Class<? extends Service> c : servicesDemarres) {
 			if (c.getPackageName().equals(u.getLogin()))
-				sb.append("* " + i++ + " : " + c.getSimpleName());
+				al.add(c.getSimpleName());
 		}
-		return sb.toString();
+		return al.toArray(new String[al.size()]);
 	}
 
-	public static String getServicesArretes(User u) {
-		StringBuilder sb = new StringBuilder();
-		int i = 1;
+	public static String[] getServicesArretes(User u) {
+		List<String> al = new ArrayList<String>();
 		for (Class<? extends Service> c : servicesArretes) {
 			if (c.getPackageName().equals(u.getLogin()))
-				sb.append("* " + i++ + " : " + c.getSimpleName());
+				al.add(c.getSimpleName());
 		}
-		return sb.toString();
+		return al.toArray(new String[al.size()]);
 	}
 
-	public static String getService(User u) {
-		StringBuilder sb = new StringBuilder();
-		int i = 1;
-		for (Class<? extends Service> c : servicesArretes) {
+	public static String[] getService(User u) {
+		List<String> al = new ArrayList<String>();
+		for (Class<? extends Service> c : servicesDemarres) {
 			if (c.getPackageName().equals(u.getLogin()))
-				sb.append("* " + i++ + " : " + c.getSimpleName());
+				al.add(c.getSimpleName());
 		}
 		for (Class<? extends Service> c : servicesArretes) {
 			if (c.getPackageName().equals(u.getLogin()))
-				sb.append("* " + i++ + " : " + c.getSimpleName());
+				al.add(c.getSimpleName());
 		}
-		return sb.toString();
+		return al.toArray(new String[al.size()]);
+	}
+
+	private static boolean contains(Class<?> service) {
+		return servicesArretes.contains(service) || servicesDemarres.contains(service);
 	}
 }

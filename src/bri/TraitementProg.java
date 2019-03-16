@@ -144,6 +144,7 @@ public class TraitementProg implements Traitement {
 					case 7:
 						return;
 					default:
+						out.println("Ce choix n'existe pas. Réessayez");
 						break;
 					}
 				} catch (NumberFormatException e) {
@@ -156,25 +157,57 @@ public class TraitementProg implements Traitement {
 	}
 
 	private void updateService(User u, BufferedReader in, PrintWriter out) {
-		String s = ServiceRegistry.getService(u);
-		out.println("");
+		String[] sArr = ServiceRegistry.getService(u);
+		out.println("****************");
+		if (sArr.length == 0) {
+			out.println("Vous n'avez pas de services.");
+		} else {
+			try {
+				out.println("Vos services : ");
+				int i = 1;
+				for (String s : sArr)
+					out.println("* " + i++ + " : " + s);
+				out.println("Entrez le numéro de service : \n" + stop);
+				int numService = Integer.parseInt(in.readLine());
+				if (numService < 1 || numService > sArr.length) {
+					out.println("Numéro de service incorrect.");
+					return;
+				}
+				String serviceStr = sArr[numService - 1];
+				URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
+				try {
+					Class<?> updated = classLoader.loadClass(u.getLogin() + "." + serviceStr);
+					if (ServiceRegistry.updateService(numService, updated, u))
+						out.println("Service " + numService + " mis à jour.");
+					else
+						out.println("Service " + numService + " inexistant.");
+				} catch (ClassNotFoundException e) {
+				}
+				classLoader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		out.println("****************");
 
 	}
 
 	private void arreterService(User u, BufferedReader in, PrintWriter out) throws NumberFormatException {
 
-		String sd = ServiceRegistry.getServicesDemarres(u);
+		String[] sdArr = ServiceRegistry.getServicesDemarres(u);
 		out.println("****************");
-		if (sd.equals("")) {
+		if (sdArr.length == 0) {
 			out.println("Vous n'avez pas de services démarrés.");
 		} else {
 			try {
 				out.println("Vos services démarrés : ");
-				out.println(sd);
+				int i = 1;
+				for (String s : sdArr)
+					out.println("* " + i++ + " : " + s);
 				out.println("Entrez le numéro de service : \n" + stop);
 				int numService = Integer.parseInt(in.readLine());
 				if (ServiceRegistry.arreteService(numService, u))
-					out.println("Service " + numService + " arrêté.");
+					out.println("Service " + sdArr[numService - 1] + " arrêté.");
 				else
 					out.println("Service " + numService + " inexistant.");
 			} catch (IOException e) {
@@ -185,18 +218,20 @@ public class TraitementProg implements Traitement {
 	}
 
 	private void demarrerService(User u, BufferedReader in, PrintWriter out) {
-		String sd = ServiceRegistry.getServicesArretes(u);
+		String[] saArr = ServiceRegistry.getServicesArretes(u);
 		out.println("****************");
-		if (sd.equals("")) {
+		if (saArr.length == 0) {
 			out.println("Vous n'avez pas de services arrêtés.");
 		} else {
 			try {
 				out.println("Vos services arrêtés : ");
-				out.println(sd);
+				int i = 1;
+				for (String s : saArr)
+					out.println("* " + i++ + " : " + s);
 				out.println("Entrez le numéro de service : \n" + stop);
 				int numService = Integer.parseInt(in.readLine());
 				if (ServiceRegistry.demarrerService(numService, u))
-					out.println("Service " + numService + " démarré.");
+					out.println("Service " + saArr[numService - 1] + " démarré.");
 				else
 					out.println("Service " + numService + " inexistant.");
 			} catch (IOException e) {
@@ -215,30 +250,38 @@ public class TraitementProg implements Traitement {
 			URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
 			Class<?> service = classLoader.loadClass(u.getLogin() + "." + serviceStr);
 			classLoader.close();
-			ServiceRegistry.addService(service);
+			if(ServiceRegistry.addService(service))
+				out.println("Service "+ serviceStr + " ajouté.");
+			else
+				out.println("Service déjà présent ou non conforme BRI.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			out.println("Votre service ne se trouve pas correctement sur votre serveur FTP.");
 		}
+		out.println("****************");
+
 	}
 
 	private void dispServices(User u, BufferedReader in, PrintWriter out) {
 
-		String sd = ServiceRegistry.getServicesDemarres(u);
-		String sa = ServiceRegistry.getServicesArretes(u);
+		String[] sdArr = ServiceRegistry.getServicesDemarres(u);
+		String[] saArr = ServiceRegistry.getServicesArretes(u);
+		int i = 1;
 		out.println("****************");
-		if (sd.equals("")) {
+		if (sdArr.length == 0) {
 			out.println("Vous n'avez pas de services démarrés.");
 		} else {
 			out.println("Vos services démarrés : ");
-			out.println(sd);
+			for (String s : sdArr)
+				out.println("* " + i++ + " : " + s);
 		}
-		if (sa.equals("")) {
+		if (saArr.length == 0) {
 			out.println("Vous n'avez pas de services arrétés.");
 		} else {
 			out.println("Vos services arrétés : ");
-			out.println(sa);
+			for (String s : saArr)
+				out.println("* " + i++ + " : " + s);
 		}
 		out.println("****************");
 	}
