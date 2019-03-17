@@ -1,0 +1,8 @@
+name: "dut_a2_appref_bri"
+description: "Projet services dynamiques"
+topics: []
+homepage: ""
+source:
+  provider: gitlab
+  namespace: "sachahjkl"
+  path: "sachahjkl/dut_a2_appref_bri"
