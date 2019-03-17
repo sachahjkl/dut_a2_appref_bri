@@ -12,8 +12,9 @@ import users.Programmer;
 
 public class TraitementProg implements Traitement {
 
-	public static String stop = "#30#";
-	public static String end = "#31#";
+	public static final String stop = "#30#";
+	public static final String end = "#31#";
+
 	private Socket client;
 
 	TraitementProg(Socket socket) {
@@ -29,7 +30,7 @@ public class TraitementProg implements Traitement {
 				out.println("* Que voulez vous faire :");
 				out.println("* 1 : Connexion");
 				out.println("* 2 : Inscription");
-				out.println("* 3 : Fin\n" + stop);
+				out.println("* 3 : Quitter\n" + stop);
 				try {
 					int choix = Integer.parseInt(in.readLine());
 					switch (choix) {
@@ -41,10 +42,7 @@ public class TraitementProg implements Traitement {
 						break;
 					case 3:
 						out.println(end);
-						try {
-							finalize();
-						} catch (Throwable e) {
-						}
+						finalize();
 						return;
 					default:
 						out.println("Ce choix n'existe pas. Réessayez");
@@ -56,7 +54,7 @@ public class TraitementProg implements Traitement {
 			}
 
 		} catch (IOException e) {
-			// Fin du service
+			finalize();
 		}
 	}
 
@@ -156,8 +154,29 @@ public class TraitementProg implements Traitement {
 		}
 	}
 
+	private void addService(User u, BufferedReader in, PrintWriter out) {
+		try {
+			out.println("****************");
+			out.println("Saisissez le nom du service (du .class) à ajouter : \n" + stop);
+			String serviceStr = in.readLine();
+			URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
+			Class<?> service = classLoader.loadClass(u.getLogin() + "." + serviceStr);
+			classLoader.close();
+			ServiceRegistry.addService(service);
+			out.println("Service " + serviceStr + " ajouté.");
+		} catch (IOException e) {
+			out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			out.println("Votre service ne se trouve pas correctement sur votre serveur FTP.");
+			e.printStackTrace();
+		}
+		out.println("****************");
+
+	}
+
 	private void updateService(User u, BufferedReader in, PrintWriter out) {
-		String[] sArr = ServiceRegistry.getService(u);
+		String[] sArr = ServiceRegistry.getServices(u);
 		out.println("****************");
 		if (sArr.length == 0) {
 			out.println("Vous n'avez pas de services.");
@@ -177,14 +196,19 @@ public class TraitementProg implements Traitement {
 				URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
 				try {
 					Class<?> updated = classLoader.loadClass(u.getLogin() + "." + serviceStr);
+					if (updated != null)
+						out.println(updated.getSimpleName());
 					if (ServiceRegistry.updateService(numService, updated, u))
 						out.println("Service " + numService + " mis à jour.");
 					else
 						out.println("Service " + numService + " inexistant.");
 				} catch (ClassNotFoundException e) {
+					out.println("Erreur au chargement de la classe: " + e.getMessage());
+					e.printStackTrace();
 				}
 				classLoader.close();
 			} catch (IOException e) {
+				out.println("Erreur : " + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -242,29 +266,7 @@ public class TraitementProg implements Traitement {
 
 	}
 
-	private void addService(User u, BufferedReader in, PrintWriter out) {
-		try {
-			out.println("****************");
-			out.println("Saisissez le nom du service (du .class) à ajouter : \n" + stop);
-			String serviceStr = in.readLine();
-			URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
-			Class<?> service = classLoader.loadClass(u.getLogin() + "." + serviceStr);
-			classLoader.close();
-			if(ServiceRegistry.addService(service))
-				out.println("Service "+ serviceStr + " ajouté.");
-			else
-				out.println("Service déjà présent ou non conforme BRI.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			out.println("Votre service ne se trouve pas correctement sur votre serveur FTP.");
-		}
-		out.println("****************");
-
-	}
-
 	private void dispServices(User u, BufferedReader in, PrintWriter out) {
-
 		String[] sdArr = ServiceRegistry.getServicesDemarres(u);
 		String[] saArr = ServiceRegistry.getServicesArretes(u);
 		int i = 1;
@@ -298,12 +300,15 @@ public class TraitementProg implements Traitement {
 		}
 	}
 
-	protected void finalize() throws Throwable {
+	protected void finalize() {
 		System.out.println("log : Service programmeur éteint");
-		client.close();
+		try {
+			client.close();
+		} catch (IOException e) {
+			System.err.println("log : Erreur à la fermeture de la socket.");
+		}
 	}
 
-	// lancement du service
 	public void start() {
 		(new Thread(this)).start();
 	}
