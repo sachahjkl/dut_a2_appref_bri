@@ -38,6 +38,7 @@ public abstract class AClient {
 					System.err.println("Fin de la connexion");
 					return;
 				}
+				System.out.print("> ");
 				sout.println(clavier.readLine());
 			}
 		} catch (IOException e) {

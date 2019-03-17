@@ -150,7 +150,7 @@ public class ServiceRegistry {
 		} catch (NoSuchMethodException | SecurityException e) {
 			throw new InvalidClassException("Pas de constructeur public ayant un attribut socket.");
 		}
-		if (c.getExceptionTypes().length == 0)
+		if (c.getExceptionTypes().length != 0)
 			throw new InvalidClassException("Pas de constructeur public sans exception.");
 		if (!(containsPrivateSocket(service.getDeclaredFields())))
 			throw new InvalidClassException("N'as pas d'attribut socket private final");
