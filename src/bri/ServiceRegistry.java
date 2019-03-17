@@ -24,7 +24,7 @@ public class ServiceRegistry {
 		try {
 			registerProgrammer("test", "test", "localhost:2121");
 			registerProgrammer("test1", "test", "localhost:2121");
-			//addService(test.ServiceInversion.class);
+			// addService(test.ServiceInversion.class);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -39,10 +39,10 @@ public class ServiceRegistry {
 	public static boolean addService(Class<?> service) throws InvalidClassException {
 		if (checkServiceBRI(service)) {
 			if (contains(service))
-				throw new InvalidClassException("Service déjà présent ou non conforme BRI.");
+				throw new InvalidClassException("Service déjà présent.");
 			return servicesDemarres.add((Class<? extends Service>) service);
 		}
-		return false;
+		throw new InvalidClassException("Service non conforme BRI.");
 	}
 
 	public static boolean arreteService(int numService, User u) {
@@ -98,8 +98,9 @@ public class ServiceRegistry {
 	}
 
 	public static boolean removeService(Class<? extends Service> s) {
-		boolean b = servicesDemarres.remove(s);
-		return servicesArretes.remove(s) || b;
+		boolean b = servicesArretes.remove(s) || servicesDemarres.remove(s);
+		System.gc();
+		return b;
 	}
 
 	private static boolean contains(Class<?> service) {

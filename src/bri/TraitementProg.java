@@ -114,9 +114,10 @@ public class TraitementProg implements Traitement {
 				out.println("* 2 : Mettre-à-jour un service");
 				out.println("* 3 : Demarrer un service");
 				out.println("* 4 : Arrêter un service");
-				out.println("* 5 : Déclarer un changement d’adresse de son serveur ftp");
-				out.println("* 6 : Voir vos services ajoutées");
-				out.println("* 7 : Déconnexion\n" + stop);
+				out.println("* 5 : Désinstaller un service");
+				out.println("* 6 : Déclarer un changement d’adresse de son serveur ftp");
+				out.println("* 7 : Voir vos services ajoutées");
+				out.println("* 8 : Déconnexion\n" + stop);
 				try {
 					int choix = Integer.parseInt(in.readLine());
 					switch (choix) {
@@ -125,7 +126,6 @@ public class TraitementProg implements Traitement {
 						break;
 					case 2:
 						updateService(u, in, out);
-
 						break;
 					case 3:
 						demarrerService(u, in, out);
@@ -134,12 +134,15 @@ public class TraitementProg implements Traitement {
 						arreterService(u, in, out);
 						break;
 					case 5:
-						changeFTP(u, in, out);
+						removeService(u, in, out);
 						break;
 					case 6:
-						dispServices(u, in, out);
+						changeFTP(u, in, out);
 						break;
 					case 7:
+						dispServices(u, in, out);
+						break;
+					case 8:
 						return;
 					default:
 						out.println("Ce choix n'existe pas. Réessayez");
@@ -157,18 +160,21 @@ public class TraitementProg implements Traitement {
 	private void addService(User u, BufferedReader in, PrintWriter out) {
 		try {
 			out.println("****************");
+			out.println("* 0 : Annuler");
 			out.println("Saisissez le nom du service (du .class) à ajouter : \n" + stop);
 			String serviceStr = in.readLine();
+			if (serviceStr.equals("0"))
+				return;
 			URLClassLoader classLoader = new URLClassLoader(new URL[] { u.getFTPAddress() });
 			Class<?> service = classLoader.loadClass(u.getLogin() + "." + serviceStr);
 			classLoader.close();
-			ServiceRegistry.addService(service);
-			out.println("Service " + serviceStr + " ajouté.");
+			if (ServiceRegistry.addService(service))
+				out.println("Service " + serviceStr + " ajouté.");
 		} catch (IOException e) {
 			out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			out.println("Votre service ne se trouve pas correctement sur votre serveur FTP.");
+			out.println("Erreur au chargement de la classe: " + e.getMessage());
 			e.printStackTrace();
 		}
 		out.println("****************");
@@ -182,12 +188,15 @@ public class TraitementProg implements Traitement {
 			out.println("Vous n'avez pas de services.");
 		} else {
 			try {
+				out.println("* 0 : Annuler");
 				out.println("Vos services : ");
 				int i = 1;
 				for (String s : sArr)
 					out.println("* " + i++ + " : " + s);
 				out.println("Entrez le numéro de service : \n" + stop);
 				int numService = Integer.parseInt(in.readLine());
+				if (numService == 0)
+					return;
 				if (numService < 1 || numService > sArr.length) {
 					out.println("Numéro de service incorrect.");
 					return;
@@ -199,9 +208,7 @@ public class TraitementProg implements Traitement {
 					if (updated != null)
 						out.println(updated.getSimpleName());
 					if (ServiceRegistry.updateService(numService, updated, u))
-						out.println("Service " + numService + " mis à jour.");
-					else
-						out.println("Service " + numService + " inexistant.");
+						out.println("Service " + serviceStr + " mis à jour.");
 				} catch (ClassNotFoundException e) {
 					out.println("Erreur au chargement de la classe: " + e.getMessage());
 					e.printStackTrace();
@@ -209,32 +216,6 @@ public class TraitementProg implements Traitement {
 				classLoader.close();
 			} catch (IOException e) {
 				out.println("Erreur : " + e.getMessage());
-				e.printStackTrace();
-			}
-		}
-		out.println("****************");
-
-	}
-
-	private void arreterService(User u, BufferedReader in, PrintWriter out) throws NumberFormatException {
-
-		String[] sdArr = ServiceRegistry.getServicesDemarres(u);
-		out.println("****************");
-		if (sdArr.length == 0) {
-			out.println("Vous n'avez pas de services démarrés.");
-		} else {
-			try {
-				out.println("Vos services démarrés : ");
-				int i = 1;
-				for (String s : sdArr)
-					out.println("* " + i++ + " : " + s);
-				out.println("Entrez le numéro de service : \n" + stop);
-				int numService = Integer.parseInt(in.readLine());
-				if (ServiceRegistry.arreteService(numService, u))
-					out.println("Service " + sdArr[numService - 1] + " arrêté.");
-				else
-					out.println("Service " + numService + " inexistant.");
-			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
@@ -248,12 +229,15 @@ public class TraitementProg implements Traitement {
 			out.println("Vous n'avez pas de services arrêtés.");
 		} else {
 			try {
+				out.println("* 0 : Annuler");
 				out.println("Vos services arrêtés : ");
 				int i = 1;
 				for (String s : saArr)
 					out.println("* " + i++ + " : " + s);
 				out.println("Entrez le numéro de service : \n" + stop);
 				int numService = Integer.parseInt(in.readLine());
+				if (numService == 0)
+					return;
 				if (ServiceRegistry.demarrerService(numService, u))
 					out.println("Service " + saArr[numService - 1] + " démarré.");
 				else
@@ -263,7 +247,67 @@ public class TraitementProg implements Traitement {
 			}
 		}
 		out.println("****************");
+	}
 
+	private void arreterService(User u, BufferedReader in, PrintWriter out) throws NumberFormatException {
+
+		String[] sdArr = ServiceRegistry.getServicesDemarres(u);
+		out.println("****************");
+		if (sdArr.length == 0) {
+			out.println("Vous n'avez pas de services démarrés.");
+		} else {
+			try {
+				out.println("* 0 : Annuler");
+				out.println("Vos services démarrés : ");
+				int i = 1;
+				for (String s : sdArr)
+					out.println("* " + i++ + " : " + s);
+				out.println("Entrez le numéro de service : \n" + stop);
+				int numService = Integer.parseInt(in.readLine());
+				if (numService == 0)
+					return;
+				if (ServiceRegistry.arreteService(numService, u))
+					out.println("Service " + sdArr[numService - 1] + " arrêté.");
+				else
+					out.println("Service " + numService + " inexistant.");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		out.println("****************");
+	}
+
+	private void removeService(User u, BufferedReader in, PrintWriter out) {
+		String[] sArr = ServiceRegistry.getServices(u);
+		out.println("****************");
+		if (sArr.length == 0) {
+			out.println("Vous n'avez pas de services.");
+		} else {
+			try {
+				out.println("* 0 : Annuler");
+				out.println("Vos services : ");
+				int i = 1;
+				for (String s : sArr)
+					out.println("* " + i++ + " : " + s);
+				out.println("Entrez le numéro de service : \n" + stop);
+				int numService = Integer.parseInt(in.readLine());
+				if (numService == 0)
+					return;
+				if (numService < 1 || numService > sArr.length) {
+					out.println("Numéro de service incorrect.");
+					return;
+				}
+				Class<? extends Service> toRemove = ServiceRegistry.getServicesClass(numService, u);
+				if (ServiceRegistry.removeService(toRemove))
+					out.println("Service " + numService + " désinstallé.");
+				else
+					out.println("Service " + numService + " inexistant.");
+			} catch (IOException e) {
+				out.println("Erreur : " + e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		out.println("****************");
 	}
 
 	private void dispServices(User u, BufferedReader in, PrintWriter out) {
@@ -291,8 +335,11 @@ public class TraitementProg implements Traitement {
 	private void changeFTP(User u, BufferedReader in, PrintWriter out) {
 		try {
 			out.println("votre adresse actuelle : " + u.getFTPAddress().toString());
+			out.println("* 0 : Annuler");
 			out.println("nouvelle adresse FTP : \n" + stop);
 			String address = in.readLine();
+			if (address.equals("0"))
+				return;
 			((Programmer) u).setFTPAddress(address);
 			out.println("Adresse ftp changée avec succès.");
 		} catch (IOException e) {
