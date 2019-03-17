@@ -22,9 +22,7 @@ public class ServiceRegistry {
 		servicesArretes = new Vector<>();
 		users = new Vector<>();
 		try {
-			registerProgrammer("test", "test", "localhost:2121");
-			registerProgrammer("test1", "test", "localhost:2121");
-			// addService(test.ServiceInversion.class);
+			registerProgrammer("examples", "examples", "localhost:2121");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -104,7 +102,15 @@ public class ServiceRegistry {
 	}
 
 	private static boolean contains(Class<?> service) {
-		return servicesArretes.contains(service) || servicesDemarres.contains(service);
+		for (Class<? extends Service> c : servicesDemarres) {
+			if (service.getCanonicalName().contentEquals(c.getCanonicalName()))
+				return true;
+		}
+		for (Class<? extends Service> c : servicesArretes) {
+			if (service.getCanonicalName().contentEquals(c.getCanonicalName()))
+				return true;
+		}
+		return false;
 	}
 
 	// renvoie la classe de service (numService -1)
@@ -133,30 +139,30 @@ public class ServiceRegistry {
 
 	public static boolean checkServiceBRI(Class<?> service) throws InvalidClassException {
 		if (!Arrays.asList(service.getInterfaces()).contains(Service.class))
-			throw new InvalidClassException("n'implémente pas L'interface BRi.Service");
+			throw new InvalidClassException("La classe n'implémente pas L'interface BRi.Service");
 		if (Modifier.isAbstract(service.getModifiers()))
-			throw new InvalidClassException("est abstract");
+			throw new InvalidClassException("La classe est abstract");
 		if (!Modifier.isPublic(service.getModifiers()))
-			throw new InvalidClassException("n'est pas publique");
+			throw new InvalidClassException("La classe n'est pas publique");
 		Constructor<?> c = null;
 		try {
 			c = service.getConstructor(Socket.class);
 		} catch (NoSuchMethodException | SecurityException e) {
-			throw new InvalidClassException("PAS DE CONSTRUCTEUR RESPECTANT LA NORME.");
+			throw new InvalidClassException("Pas de constructeur public ayant un attribut socket.");
 		}
-		if (!(Modifier.isPublic(c.getModifiers()) && c.getExceptionTypes().length == 0))
-			throw new InvalidClassException("PAS DE CONSTRUCTEUR RESPECTANT LA NORME.");
+		if (c.getExceptionTypes().length == 0)
+			throw new InvalidClassException("Pas de constructeur public sans exception.");
 		if (!(containsPrivateSocket(service.getDeclaredFields())))
 			throw new InvalidClassException("N'as pas d'attribut socket private final");
 		Method m = null;
 		try {
 			m = service.getMethod("toStringue");
 		} catch (NoSuchMethodException | SecurityException e) {
-			throw new InvalidClassException("PAS DE TOSTRINGUE RESPECTANT LA NORME.");
+			throw new InvalidClassException("Pas de méthode 'toStringue'.");
 		}
 		if (!(Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())
 				&& m.getExceptionTypes().length == 0 && m.getReturnType().equals(String.class)))
-			throw new InvalidClassException("PAS DE TOSTRINGUE RESPECTANT LA NORME.");
+			throw new InvalidClassException("Pas de 'toStringue' respectant la norme.");
 		return true;
 	}
 

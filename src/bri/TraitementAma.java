@@ -49,6 +49,7 @@ public class TraitementAma implements Traitement {
 							out.println("");
 						} catch (Exception e) {
 							out.println("Oups! Erreur au chargement du service ");
+							e.printStackTrace();
 						}
 					} else
 						out.println("Ce choix n'existe pas. Réessayez");
